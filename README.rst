@@ -2,7 +2,7 @@
  INTK base
 ============
 ------------------------------
- An installable theme for Plone 5
+ An installable theme for Plone 5.2.x with Python
 ------------------------------
 
 `Latest version on PyPI <https://pypi.python.org/pypi/plonetheme.intkwebsite>`_
