@@ -8,6 +8,7 @@
 *.ttf
 *.otf
 *.eot
+*.DS_Store
 # dirs
 bin/
 buildout-cache/
