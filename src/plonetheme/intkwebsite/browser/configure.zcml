@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:faceted="http://namespaces.zope.org/faceted"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="plonetheme.intkwebsite">
+
+  <!-- Set overrides folder for Just-a-Bunch-Of-Templates product -->
+  <include package="z3c.jbot" file="meta.zcml" />
+  <browser:jbot
+      directory="overrides"
+      layer="plonetheme.intkwebsite.interfaces.IPlonethemeModernBaseLayer"
+      />
+
+  <!-- Publish static files -->
+  <browser:resourceDirectory
+      name="plonetheme.intkwebsite"
+      directory="static"
+      />
+
+
+</configure>
