@@ -9,6 +9,7 @@
 *.otf
 *.eot
 *.DS_Store
+.DS_Store
 # dirs
 bin/
 buildout-cache/
