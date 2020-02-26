@@ -1,231 +1,135 @@
-<!DOCTYPE html>
-<html lang="en">
+<?xml version="1.0" encoding="utf-8"?>
+<rules xmlns="http://namespaces.plone.org/diazo"
+       xmlns:css="http://namespaces.plone.org/diazo/css"
+       xmlns:xhtml="http://www.w3.org/1999/xhtml"
+       xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+       xmlns:xi="http://www.w3.org/2001/XInclude">
 
-<head>
-    <!-- Google Tag Manager -->
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-NSJC4LW');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <!--
+    You can include this rules file in your own theme as follows:
 
-    <title>Clean Blog</title>
+    <rules xmlns="http://namespaces.plone.org/diazo"
+           xmlns:css="http://namespaces.plone.org/diazo/css"
+           xmlns:xhtml="http://www.w3.org/1999/xhtml"
+           xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+           xmlns:xi="http://www.w3.org/2001/XInclude">
+        <xi:include href="++theme++barceloneta/backend.xml" />
+        <rules css:if-content="body.viewpermission-view, body.viewpermission-none">
+           <theme href="index.html" />
+           ... your rules
+        </rules>
+    </rules>
 
-    <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    This will include the toolbar in your theme and use Barceloneta to theme
+    all your backend pages such as site setup and edit.
+    -->
 
-    <!-- Custom Fonts -->
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-</head>
+  <!-- Toolbar -->
+  <before css:theme-children="body" css:content-children="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
+  <replace css:theme="#anonymous-actions" css:content-children="#portal-personaltools-wrapper" css:if-not-content=".ajax_load" css:if-content=".userrole-anonymous" />
 
-<body>
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSJC4LW"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
+  <!-- We don't want overlays -->
+  <drop attributes="class" css:content="#edit-bar a.pat-plone-modal" />
 
-    <nav class="navbar navbar-default navbar-fixed-top plone-navbar cd-auto-hide-header" id="website-nav">
-        
-        <div class="nav-trigger-wrapper">
-            <a href="#cd-nav" class="cd-nav-trigger outside">
-                <span class="menu-text">Menu</span>
-                <span class="cd-nav-icon"></span>
-            </a>
-        </div>
+  <!-- Cut down barceloneta without just for backend UI -->
+  <rules css:if-not-content="body.viewpermission-view, body.viewpermission-none">
 
-        <div class="logo-wrapper">
-            <div class="brand-logo">Start Bootstrap</div>
-        </div>
+    <theme href="../++theme++barceloneta/index.html" />
+    <notheme css:if-not-content="#visual-portal-wrapper" />
 
-        <div class="top-my-account-wrapper">
-        <ul class="plone-nav plone-navbar-nav navTreeRoot nav navbar-nav">
-            <li class="hasDropDown dropdown">
-                <a href="#" class="dropdown-toggle dropdown-desktop" role="button" aria-haspopup="true" aria-expanded="false" data-toggle="dropdown">
-                <span class="my-account-trigger-text">Mijn account</span> <span class="fa fa-angle-down"></span></a>
-                <script type="text/javascript" src="https://intkwebsite.podiumnederland.nl/widget/profileWidgetJs"></script>
-                <div class="submenu dropdown-menu pull-right" id="twt-widget-container">
-                    
-                </div>
+    <!-- We can't control the bundle from here due to include. Just hard code -->
+    <after css:theme-children="head">
+      <link rel="stylesheet" href="/++theme++barceloneta/less/barceloneta-compiled.css" />
+    </after>
 
-                <a href="https://intkwebsite.podiumnederland.nl/" class="dropdown-toggle dropdown-mobile"><span class="fa fa-user"></span></a>
-            </li>
-        </ul>
-        </div>
+    <rules css:if-content="#portal-top">
+      <!-- Attributes -->
+      <copy attributes="*" css:theme="html" css:content="html" />
+      <!-- Base tag -->
+      <before css:theme="title" css:content="base" />
+      <!-- Title -->
+      <replace css:theme="title" css:content="title" />
+      <!-- Pull in Plone Meta -->
+      <after css:theme-children="head" css:content="head meta" />
+      <!-- Don't use Plone icons, use the theme's -->
+      <drop css:content="head link[rel='apple-touch-icon']" />
+      <drop css:content="head link[rel='shortcut icon']" />
+    </rules>
 
-        <div class="top-search-wrapper">
-            <a href="/search" class="btn btn-default"><i class="fa fa-search"></i></a>
-        </div>
+    <!-- Copy over the id/class attributes on the body tag. This is important for per-section styling -->
+    <copy attributes="*" css:content="body" css:theme="body" />
 
-    </nav>
-    
-    <div id="website-wrapper" class="empty-slideshow">
-    
-    <!-- Page Header -->
-    <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header">
-        <div id="slickcarousel">
-        </div>
-        <div id="website-title">
-            <h1 class="website-title"></h1>
-        </div>
-    </header>
+    <!-- CSS -->
+    <drop css:content="head link[data-bundle='diazo']" />
+    <after css:theme-children="head" css:content="head link" />
 
-    <div class="logo-wrapper">
-        <div class="brand-logo">Start Bootstrap</div>
-    </div>
+    <!-- Script -->
+    <drop css:content="head script[data-bundle='diazo']" />
+    <after css:theme-children="head" css:content="head script" />
 
-    
+    <!-- We don't need global nav -->
+    <drop css:theme="#mainnavigation-wrapper" />
 
-    <div class="container page-container">
+    <!-- Hero unit on homepage only -->
+    <drop css:theme="div.principal" css:if-not-content="body.template-document_view.section-front-page" />
 
-        <!-- Above content -->
+    <!-- Full-width breadcrumb -->
+    <replace css:theme="#above-content" css:content="#viewlet-above-content" />
+    <after css:theme-children="head">
+        <style>.plone-breadcrumb {margin-top: 0;}</style>
+    </after>
+
+    <!-- Central column -->
+    <replace css:theme="#content-container" method="raw">
+      <xsl:variable name="central">
+        <xsl:if test="//aside[@id='portal-column-one'] and //aside[@id='portal-column-two']">col-xs-12 col-sm-6</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-two'] and not(//aside[@id='portal-column-one'])">col-xs-12 col-sm-9</xsl:if>
+        <xsl:if test="//aside[@id='portal-column-one'] and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-9</xsl:if>
+        <xsl:if test="not(//aside[@id='portal-column-one']) and not(//aside[@id='portal-column-two'])">col-xs-12 col-sm-12</xsl:if>
+      </xsl:variable>
+      <div class="{$central}">
         <div class="row">
-            <div class="container" id="global_statusmessage"></div>
-            <div class="container" id="above-content"></div>
+          <div class="col-xs-12 col-sm-12">
+             <xsl:apply-templates css:select="#content" />
+          </div>
         </div>
+        <footer class="row">
+          <div class="col-xs-12 col-sm-12">
+           <xsl:copy-of css:select="#viewlet-below-content" />
+          </div>
+        </footer>
+      </div><!--/row-->
+    </replace>
 
-        <!-- Main Content -->
-        <div class="container" id="column1-container">
-            <div class="row">
-            </div>
+    <!-- Alert message -->
+    <replace css:theme-children="#global_statusmessage" css:content-children="#global_statusmessage" />
+
+    <!-- Left column -->
+    <rules css:if-content="#portal-column-one">
+      <replace css:theme="#column1-container">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas">
+          <aside id="portal-column-one">
+            <xsl:copy-of css:select="#portal-column-one > *" />
+          </aside>
         </div>
+      </replace>
+    </rules>
 
-        <div class="col-xs-12 col-sm-12 title-container">
-            <div id="event-summary"></div>
-            <h1 class="brand-name">Clean Blog</h1>
-            <span class="subheading"><div class="documentDescription">A Clean Blog Theme by Start Bootstrap</div></span>
+    <!-- Right column -->
+    <rules css:if-content="#portal-column-two">
+      <replace css:theme="#column2-container">
+        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" role="complementary">
+          <aside id="portal-column-two">
+            <xsl:copy-of css:select="#portal-column-two > *" />
+          </aside>
         </div>
+      </replace>
+    </rules>
 
-        <div class="container" id="content-container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">
-                                Man must explore, and this is exploration at its greatest
-                            </h2>
-                            <h3 class="post-subtitle">
-                                Problems look mighty small from 150 miles up
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
-                    </div>
-                    <hr>
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">
-                                I believe every human has a finite number of heartbeats. I don't intend to waste any of mine.
-                            </h2>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 18, 2014</p>
-                    </div>
-                    <hr>
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">
-                                Science has not yet mastered prophecy
-                            </h2>
-                            <h3 class="post-subtitle">
-                                We predict too much for the next year and yet far too little for the next ten.
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</p>
-                    </div>
-                    <hr>
-                    <div class="post-preview">
-                        <a href="post.html">
-                            <h2 class="post-title">
-                                Failure is not an option
-                            </h2>
-                            <h3 class="post-subtitle">
-                                Many say exploration is part of our destiny, but it’s actually our duty to future generations.
-                            </h3>
-                        </a>
-                        <p class="post-meta">Posted by <a href="#">Start Bootstrap</a> on July 8, 2014</p>
-                    </div>
-                    <hr>
-                    <!-- Pager -->
-                    <ul class="pager">
-                        <li class="next">
-                            <a href="#">Older Posts &rarr;</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container" id="column2-container">
-            <div class="row">
-            </div>
-        </div>
-    </div>
+    <!-- Content header -->
+    <drop css:theme="#portal-top" />
+    <drop css:theme="#portal-footer-wrapper" />
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-                    <ul class="list-inline text-center">
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x"></i>
-                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted">Copyright &copy; Your Website 2014</p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    </div>
+  </rules>
 
-    <a href="#cd-nav" class="cd-nav-trigger outside">
-        <span class="menu-text">Menu</span>
-        <span class="cd-nav-icon"></span>
-    </a>
-
-    <div id="cd-nav" class="cd-nav">
-        <div class="cd-navigation-wrapper">
-            <div class="main-block">
-                <nav>
-                    <ul class="cd-primary-nav">
-                        
-                    </ul>
-                </nav>
-            </div><!-- .cd-half-block -->
-        </div> <!-- .cd-navigation-wrapper -->
-    </div> <!-- .cd-nav -->
-</body>
-<script src="js/intkwebsite.js"></script> 
-</html>
+</rules>
