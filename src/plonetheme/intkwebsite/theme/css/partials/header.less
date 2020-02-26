@@ -1,0 +1,141 @@
+/* THEME HEADER */
+
+.modal-image img {
+	max-width: 100%;
+}
+
+body.frontend div.outer-wrapper {
+	#portal-header {
+    	margin-top: 0px;
+    }
+    
+	#top-header-wrapper {
+		padding-top: @theme-padding-top-header;
+		padding-bottom: @theme-padding-bottom-header;
+		background: @theme-bg-header;
+		margin-bottom: 25px;
+	}
+
+	/* Main title */
+
+	h1.documentFirstHeading {
+        border-bottom: 0px;
+        font-size: 1.500em;
+        font-weight: 400;
+        letter-spacing: 0.00em;
+        text-align: center;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
+        margin-top: 5px;
+    }
+
+    #header-wrapper {
+    	padding-top: 10px;
+    }
+    
+    #viewlet-below-content-title {
+    	.documentByLine {
+    		text-align: center;
+    	}
+    }
+
+    /* Main description */
+    .documentDescription {
+    	text-align: center;
+    	font-weight: @theme-font-weight-light;
+    	font-size: 1.250em;
+    	color: #999999;
+    }
+
+    .newsImageContainer {
+    	float: none;
+    	margin: 0 auto;
+    	border-radius: 0px;
+    	box-shadow: none;
+
+    	a {
+    		background-color: inherit;
+    		margin: 0 auto;
+
+    		img {
+    			margin: 0 auto;
+    			max-width: 100%;
+    			height: auto;
+    		}
+    	}
+    }
+
+    .leadImage {
+    	margin-top: 50px;
+    	margin-bottom: 20px;
+    }
+
+    /* Media queries */
+
+    /* Mobile */
+    @media (max-width: 768px) {
+    	.leadImage {
+	    	margin-top: 0px
+    	}
+
+    	#top-header-wrapper {
+    		margin-bottom: 0px;
+    	}
+    }
+
+    @media (max-width: 991px) {
+    	.leadImage {
+	    	margin-top: 0px
+    	}
+
+    	#top-header-wrapper {
+    		margin-bottom: 0px;
+    	}
+
+    	h1.documentFirstHeading {
+    		text-align: left;
+    	}
+
+		.documentDescription {
+			text-align: left;
+		} 
+
+		#content-core {
+			width: 100%;
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+
+		#header-wrapper, #content-header {
+			padding-left: 25px;
+			padding-right: 25px;
+		}
+
+		#top-header-wrapper {
+			padding-bottom: 35px;
+		}   	
+
+		#viewlet-below-content-title .documentByLine {
+			text-align: left;
+		}
+    }
+
+    /* Desktop */
+    @media(min-width: 1200px) {
+    	.leadImage {
+    		max-width: 960px;
+    		margin-left: auto;
+    		margin-right: auto;
+    	}
+    }
+
+    /* Desktop xlarge */
+    @media(min-width: 1440px) {
+    	.leadImage {
+    		max-width: 1280px;
+    		margin-left: auto;
+    		margin-right: auto;
+    	}
+    }
+
+}
