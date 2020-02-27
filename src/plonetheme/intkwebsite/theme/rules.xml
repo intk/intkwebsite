@@ -43,7 +43,7 @@
 
   <!-- header wrapper -->
   <replace css:theme-children="#header-wrapper .container" css:content="#content > header" method="raw" />
-  <replace css:theme-children="#header-image" css:content="#viewlet-above-content-body" method="raw" />
+ 
 
 
   <!-- Central column -->
@@ -70,8 +70,12 @@
     </div>
   </replace>
 
-  <drop css:content="#content > header" />
+  <replace css:theme-children="#header-image #content" css:content="#viewlet-above-content-body" method="raw"/>
   <drop css:content="#viewlet-above-content-body" />
+
+  <drop css:content="#content > header" />
+
+
 
   <!-- Alert message -->
   <replace css:theme-children="#global_statusmessage" css:content-children="#global_statusmessage" />
@@ -110,14 +114,7 @@
   <replace css:theme="#portal-top" css:content-children="#portal-top" />
 
   <!-- Footer -->
-  <xsl:variable name="footer_portlets" select="//footer[@id='portal-footer-wrapper']//div[@class='portletWrapper']/*[not(contains(@id,'portal-colophon')) and not(contains(@id,'portal-footer-signature')) and not(contains(@class,'portletActions'))]"></xsl:variable>
-  <xsl:variable name="footer_portlets_count" select="count($footer_portlets)"></xsl:variable>
-
-  <!-- Add additional footer content, like script tags (from site settings). -->
-  <after
-      css:theme-children="html body"
-      content="//footer[@id='portal-footer-wrapper']/*[not(@class='row')]"
-      />
+  <replace css:theme-children="footer .container" css:content-children="#portal-footer-wrapper" />
 
   <!-- toolbar -->
   <replace css:theme="#portal-toolbar" css:content="#edit-bar" css:if-not-content=".ajax_load" css:if-content=".userrole-authenticated" />
@@ -133,7 +130,7 @@
   </xsl:template>
 
   <!-- render blocking resources fix -->
-  <!--<xsl:template match="//link[contains(@rel, 'stylesheet')]">
+  <xsl:template match="//link[contains(@rel, 'stylesheet')]">
     <xsl:copy>
       <xsl:copy-of select="@*" />
       <xsl:attribute name="rel">preload</xsl:attribute>
@@ -142,6 +139,6 @@
       <xsl:attribute name="onerror">this.rel='stylesheet'</xsl:attribute>
       <xsl:apply-templates />
     </xsl:copy>
-  </xsl:template>-->
+  </xsl:template>
 
 </rules>
