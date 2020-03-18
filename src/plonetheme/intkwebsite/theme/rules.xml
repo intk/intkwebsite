@@ -110,6 +110,10 @@
     </replace>
   </rules>
 
+  <!-- Move language selector to menu -->
+  <replace css:theme-children="#menu-language-selector" css:content="#portal-languageselector" method="raw" />
+  <drop css:content="#portal-languageselector" />
+
   <!-- Content header -->
   <replace css:theme="#portal-top" css:content-children="#portal-top" />
 

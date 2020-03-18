@@ -20,7 +20,6 @@ jQuery(document).ready(function (){
 
 	for (var i = 0; i < menu_buttons.length; i++) {
 	    menu_buttons[i].addEventListener('click', trigger_menu_button, {passive: true});
-		menu_buttons[i].addEventListener('touchstart', trigger_menu_button, {passive: true});
 	}
 	
 });

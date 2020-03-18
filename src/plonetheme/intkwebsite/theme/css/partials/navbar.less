@@ -23,12 +23,12 @@
 }
 
 /* Menu hamburger icon */
-.cd-nav-trigger {
+/*.cd-nav-trigger {
   position: fixed;
   z-index: 3;
   right: 50px;
-  top: 25px;
-  height: 50px;
+  top: 40px;
+  height: 35px;
   width: 50px;
   background-color: transparent;
   border-radius: 50%;
@@ -43,13 +43,12 @@
   cursor: pointer;
 
   @media (max-width: 991px) {
-  	right: 20px;
-  	top: 5px;
+  	right: 15px;
+  	top: 10px;
   }
 }
 
 .cd-nav-trigger .cd-nav-icon {
-  /* icon created in CSS */
   position: absolute;
   left: 50%;
   top: 50%;
@@ -69,8 +68,10 @@
 
 }
 
+
+
 .cd-nav-trigger .cd-nav-icon::before, .cd-nav-trigger .cd-nav-icon:after {
-  /* upper and lower lines of the menu icon */
+  
   content: '';
   position: absolute;
   top: 0;
@@ -79,7 +80,7 @@
   height: 100%;
   background-color: inherit;
 
-  /* Force Hardware Acceleration in WebKit */
+  
   -webkit-transform: translateZ(0);
   -moz-transform: translateZ(0);
   -ms-transform: translateZ(0);
@@ -116,18 +117,114 @@
   -ms-transform: translateY(7px);
   -o-transform: translateY(7px);
   transform: translateY(7px);
+}*/
+
+.cd-nav-trigger {
+  width: 40px;
+  height: 45px;
+  position: fixed;
+  margin: 0px auto;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+
+  z-index: 3;
+  background-color: transparent;
+  right: 50px;
+  top: 50px;
+
+  @media (max-width: 991px) {
+  	right: 20px;
+  	top: 20px;
+  }
+
 }
 
-body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::after {
-  top: 2px;
+.cd-nav-trigger span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: @theme-text-color;
+  border-radius: 0px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
 }
 
-body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
+.cd-nav-trigger span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.cd-nav-trigger span:nth-child(2) {
+  top: 8px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.cd-nav-trigger span:nth-child(3) {
+  top: 16px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+}
+
+.navigation-is-open .cd-nav-trigger span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: -6px;
+  left: 8px;
+}
+
+.navigation-is-open .cd-nav-trigger span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.navigation-is-open .cd-nav-trigger span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 22px;
+  left: 8px;
+}
+
+body:not(.navigation-is-open) .cd-nav-trigger:hover span:nth-child(1) {
   top: -2px;
 }
 
-.navigation-is-open .cd-nav-trigger {
-  /* rotate trigger when navigation becomes visible */
+body:not(.navigation-is-open) .cd-nav-trigger:hover span:nth-child(3) {
+  top: 18px;
+}
+
+.navigation-is-open .cd-nav-trigger span {
+	background: #ffffff;
+}
+
+/*.navigation-is-open .cd-nav-trigger {
   -webkit-transform: rotate(180deg);
   -moz-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
@@ -141,7 +238,6 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
 
 .navigation-is-open .cd-nav-trigger .cd-nav-icon::after,
 .navigation-is-open .cd-nav-trigger .cd-nav-icon::before {
-  /* animate arrow --> from hamburger to arrow */
   width: 50%;
   -webkit-transition: -webkit-transform 0.5s, width 0.5s;
   -moz-transition: -moz-transform 0.5s, width 0.5s;
@@ -162,22 +258,12 @@ body:not(.navigation-is-open) .cd-nav-trigger:hover .cd-nav-icon::before {
   -ms-transform: rotate(-45deg);
   -o-transform: rotate(-45deg);
   transform: rotate(-45deg);
-}
+}*/
+
+
 
 .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::after, .no-touch .navigation-is-open .cd-nav-trigger:hover .cd-nav-icon::before {
   top: 0;
-}
-
-.navigation-is-open .cd-nav-trigger rect {
-  stroke-dashoffset: 0;
-  -webkit-transition: stroke-dashoffset 0.4s 0.3s;
-  -moz-transition: stroke-dashoffset 0.4s 0.3s;
-  transition: stroke-dashoffset 0.4s 0.3s;
-}
-@media only screen and (min-width: 1170px) {
-  .cd-nav-trigger {
-
-  }
 }
 
 /* Menu contents */
