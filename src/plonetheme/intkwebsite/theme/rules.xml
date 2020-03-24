@@ -44,7 +44,9 @@
   <!-- header wrapper -->
   <replace css:theme-children="#header-wrapper .container" css:content="#content > header" method="raw" />
  
-
+  <!-- header wrapper for search -->
+  <replace css:theme-children="#header-wrapper .container" css:content="h1.documentFirstHeading" method="raw" css:if-content="body.template-search"/>
+  <drop css:content="h1.documentFirstHeading" css:if-content="body.template-search"/>
 
   <!-- Central column -->
   <replace css:theme="#content-container" method="raw">

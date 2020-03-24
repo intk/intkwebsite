@@ -1,0 +1,47 @@
+
+body.frontend {
+
+	/* Buttons */
+	.standalone, .context, .destructive, [type="submit"], button {
+		.Montserrat();
+		font-weight: 400;
+
+		border-radius: 0px;
+		box-shadow: none;
+		text-shadow: none;
+		height: @theme-button-height;
+	}
+
+	.standalone, [type="submit"], button {
+		background-color: #262626;
+		border-color: #262626;
+		color: #ffffff;
+		text-transform: uppercase;
+		
+		&:hover,
+		&:focus,
+		&:active,
+		&:active:focus {
+			background-color: #ffffff;
+			border-color: #262626;
+			color: #262626;
+		}
+	}
+
+	.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
+		margin-left: 0px;
+	}
+
+	/* Inputs */
+	input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="range"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea, select {
+		border-radius: 0px;
+		box-shadow: none;
+		height: @theme-input-height;
+		background-color: @theme-input-background-color;
+		border: @theme-input-border;
+		color: @theme-input-color;
+		font-size: @theme-input-font-size;
+	}
+}
+
+
