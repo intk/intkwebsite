@@ -4,38 +4,37 @@ body.frontend {
 	/* Buttons */
 	.standalone, .context, .destructive, [type="submit"], button {
 		.Montserrat();
-		font-weight: 400;
-
-		border-radius: 0px;
-		box-shadow: none;
-		text-shadow: none;
+		font-weight: @theme-button-font-weight;
+		border-radius: @theme-button-border-radius;
+		box-shadow: @theme-button-box-shadow;
+		text-shadow: @theme-button-text-shadow;
 		height: @theme-button-height;
 	}
 
 	.standalone, [type="submit"], button {
-		background-color: #262626;
-		border-color: #262626;
-		color: #ffffff;
-		text-transform: uppercase;
+		background-color: @theme-button-background-color;
+		border-color: @theme-button-border-color;
+		color: @theme-button-color;
+		text-transform: @theme-button-text-transform;
 		
 		&:hover,
 		&:focus,
 		&:active,
 		&:active:focus {
-			background-color: #ffffff;
-			border-color: #262626;
-			color: #262626;
+			background-color: @theme-button-hover-background-color;
+			border-color: @theme-button-hover-border-color;
+			color: @theme-button-hover-color;
 		}
 	}
 
 	.input-group-btn:last-child > .btn, .input-group-btn:last-child > .btn-group {
-		margin-left: 0px;
+		margin-left: @theme-button-group-margin-left;
 	}
 
 	/* Inputs */
 	input[type="color"], input[type="date"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="range"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea, select {
-		border-radius: 0px;
-		box-shadow: none;
+		border-radius: @theme-input-border-radius;
+		box-shadow: @theme-input-box-shadow;
 		height: @theme-input-height;
 		background-color: @theme-input-background-color;
 		border: @theme-input-border;

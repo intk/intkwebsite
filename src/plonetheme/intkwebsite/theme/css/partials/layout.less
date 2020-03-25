@@ -160,6 +160,14 @@
 
 body.frontend {
 
+    #plone-document-byline {
+        display: none !important;
+    }
+
+    [class*="contenttype-"]::before, .contenttype-file #crud-edit-File-widgets-view_title::before {
+        display: none;
+    }
+
     font-family: @theme-font-family-base;
     font-size: @theme-font-size-base;
     font-weight: @theme-font-weight-light;
