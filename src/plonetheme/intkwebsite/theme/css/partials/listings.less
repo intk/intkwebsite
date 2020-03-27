@@ -34,6 +34,10 @@ body.frontend {
 				width: 100%;
 			}
 
+			.image-wrapper {
+				position: relative;
+			}
+
 			.title-wrapper {
 				margin-top: @theme-listing-title-margin-top;
 				margin-bottom: @theme-listing-title-margin-bottom;
@@ -60,7 +64,48 @@ body.frontend {
 				}
 			}
 
-			
+			.person-buttons-wrapper {
+				float: left;
+				width: 100%;
+				text-align: center;
+				position: absolute;
+				bottom: 0px;
+				padding: 20px 15px;
+
+				button {
+					width: 60px;
+					height: 45px;
+					margin-left: -1px;
+					background-color: rgba(255,255,255, 0.96);
+					border-color: #eeeeee;
+					color: #797676;
+					outline: none;
+					font-size: 1.100em;
+				}
+
+				.person-buttons > a:not(.phone-link) {
+					display: inline-block;
+					border-bottom: 0px;
+					&:hover,
+					&:focus,
+					&:active,
+					&:active:focus {
+						outline: none;
+					}
+				}
+
+				button {
+					&:hover,
+					&:focus,
+					&:active,
+					&:active:focus {
+						outline: none;
+						background-color: #ffffff;
+						border-color: #eeeeee;
+						color: #242424;
+					}
+				}
+			}
 
 			.documentByLine {
 				width: 100%;
