@@ -42,11 +42,20 @@
   <replace css:content="#viewlet-above-content" css:theme="#above-content" />
 
   <!-- header wrapper -->
-  <replace css:theme-children="#header-wrapper .container" css:content="#content > header" method="raw" />
+  <replace css:theme-children="#header-wrapper .container.main" css:content="#content > header" method="raw" />
  
   <!-- header wrapper for search -->
   <replace css:theme-children="#header-wrapper .container" css:content="h1.documentFirstHeading" method="raw" css:if-content="body.template-search"/>
   <drop css:content="h1.documentFirstHeading" css:if-content="body.template-search"/>
+
+  <!-- header mosaic layout -->
+  <replace css:theme="#header-wrapper .container.layout .title" css:content="h1.documentFirstHeading" method="raw" css:if-content="body.template-layout"/>
+  <replace css:theme="#header-wrapper .container.layout .description" css:content="div.mosaic-IDublinCore-description-tile .documentDescription" method="raw" css:if-content="body.template-layout"/>
+  
+  <drop css:content="h1.documentFirstHeading" css:if-content="body.template-layout"/>
+  <drop css:content="div.mosaic-IDublinCore-description-tile .documentDescription" css:if-content="body.template-layout"/>
+  <drop css:theme="#header-wrapper .container.main" css:if-content="body.template-layout"/>
+
 
   <!-- Central column -->
   <replace css:theme="#content-container" method="raw">

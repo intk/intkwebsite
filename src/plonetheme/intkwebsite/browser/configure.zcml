@@ -25,4 +25,14 @@
           />
     </configure>
 
+
+    <browser:page
+        zcml:condition="installed plone.app.standardtiles"
+        name="collection_view"
+        for="*"
+        layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+        permission="zope2.View"
+        template="templates/collection_view.pt"
+    />
+
 </configure>
