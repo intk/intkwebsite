@@ -15,7 +15,7 @@ long_description = '\n\n'.join([
 setup(
     name='plonetheme.intkwebsite',
     version='0.1',
-    description="An installable theme for Plone 5 based on plonetheme.barceloneta",
+    description="An installable theme for Plone 5 based on plonetheme.barceloneta and compatible with Python 3",
     long_description=long_description,
     classifiers=[
         "Development Status :: 5 - Production/Stable",
