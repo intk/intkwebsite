@@ -32,7 +32,7 @@
                             item_url python: item.portal_type in view_types and item.getURL() + '/view' or item.getURL();
                             item_link item_url;
                             item_type item/PortalType;
-                            item_is_special python: item_type in ['Person', 'Connector'];
+                            item_is_special python: item_type in ['Person', 'Connector', 'Organization'];
                             hide_link_special_types python: True if item_is_special and not show_about else False;">
 
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 entry-item">
