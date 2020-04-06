@@ -35,4 +35,13 @@
         template="templates/collection_view.pt"
     />
 
+    <browser:page
+        zcml:condition="installed plone.app.standardtiles"
+        name="categories_view"
+        for="*"
+        layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+        permission="zope2.View"
+        template="templates/categories_view.pt"
+    />
+
 </configure>

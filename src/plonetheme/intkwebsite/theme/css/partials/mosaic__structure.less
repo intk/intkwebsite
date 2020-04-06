@@ -22,31 +22,35 @@ body.template-edit.mosaic-layout-customized {
 		margin-top: 0px;
 	}
 
-	#header-wrapper {
-		.documentFirstHeading {
-			display: none;
-		}
 
-		.documentDescription {
-			.Lato();
-			font-size: 1.875em;
-			line-height: 45px;
-			padding-top: 50px;
-			padding-bottom: 40px;
-			max-width: 850px;
-			
-		}
+	&:not(.section-organizations) {
 
-		@media(max-width: 991px) {
-			.documentDescription { 
-				padding-top: 0px;
-				padding-bottom: 15px;
+		#header-wrapper {
+			.documentFirstHeading {
+				display: none;
 			}
-		}
 
-		@media(min-width: 992px) {
 			.documentDescription {
-				margin: 0 auto;
+				.Lato();
+				font-size: 1.875em;
+				line-height: 45px;
+				padding-top: 50px;
+				padding-bottom: 40px;
+				max-width: 850px;
+				
+			}
+
+			@media(max-width: 991px) {
+				.documentDescription { 
+					padding-top: 0px;
+					padding-bottom: 15px;
+				}
+			}
+
+			@media(min-width: 992px) {
+				.documentDescription {
+					margin: 0 auto;
+				}
 			}
 		}
 	}
