@@ -33,5 +33,12 @@ jQuery(document).ready(function (){
 
 	/* Person */
 	jQuery('[data-toggle="popover"]').popover({"html": true});
+
+	/* Team page */
+	/*if (jQuery("body.frontend.subsection-team-team-overview").length > 0) {
+		jQuery.get("@@request_sync_all_persons", function(data) {
+			// Do nothing;
+		});
+	};*/
 	
 });
