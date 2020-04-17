@@ -70,6 +70,59 @@
         margin-bottom: 20px;
     }
 
+
+    .wcvideo-container {
+        float: none;
+        margin: 0 auto;
+        border-radius: 0px;
+        box-shadow: none;
+        position: relative;
+
+        width: 100%;
+        padding-top: 56.25%;
+
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+        }
+
+        figure {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+
+    .icon-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+
+        svg {
+            width: 70px;
+            height: 100%;
+            opacity: 0.75;
+        }
+    }
+
+    a.video-wrapper-link:hover {
+        cursor: pointer;
+        svg {
+            opacity: 1;
+            cursor: pointer;
+        }
+    }
+
     /* Media queries */
 
     /* Mobile */

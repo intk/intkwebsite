@@ -34,11 +34,14 @@ jQuery(document).ready(function (){
 	/* Person */
 	jQuery('[data-toggle="popover"]').popover({"html": true});
 
-	/* Team page */
-	/*if (jQuery("body.frontend.subsection-team-team-overview").length > 0) {
-		jQuery.get("@@request_sync_all_persons", function(data) {
-			// Do nothing;
+	/* Video */
+	var video_wrapper_link = jQuery('a.video-wrapper-link');
+	var video_wrapper = jQuery('figure.video-wrapper');
+
+	if (video_wrapper.length) {
+		jQuery('.video-wrapper-link').on('click', function() {
+			video_wrapper.html('<iframe allowfullscreen frameborder="0" class="embed-responsive-item" src="' + video_wrapper_link.data('yt-video') + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>');
+			
 		});
-	};*/
-	
+	}
 });

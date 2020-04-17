@@ -13,6 +13,29 @@
 		position: relative;
 	}
 
+	.icon-video {
+		position: absolute;
+	    top: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 100%;
+	    text-align: center;
+
+	    svg {
+	    	width: 70px;
+	    	height: 70px;
+	    	margin-top: 50%;
+    		transform: translateY(-50%);
+    		opacity: 0.75;
+	    }
+	}
+
+	.image-wrapper:hover {
+		svg {
+    		opacity: 1;
+	    }
+	}
+
 	.title-wrapper {
 		margin-top: @theme-listing-title-margin-top;
 		margin-bottom: @theme-listing-title-margin-bottom;
@@ -98,6 +121,8 @@
 			margin-bottom: @theme-listing-description-margin-bottom;
 		}
 	}
+
+	
 
 	.visible-xs, .visible-sm, .visible-md, .visible-lg {
 	    display: none !important;
