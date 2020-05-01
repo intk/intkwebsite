@@ -44,3 +44,25 @@ body.frontend {
 }
 
 
+body.template-layout.mosaic-grid, 
+body.template-edit.mosaic-layout-customized {
+	&.section-frontpage div.outer-wrapper #main-container {
+		a.btn {
+			line-height: 32px;
+			color:@theme-button-color !important;
+			text-decoration: none !important;
+			margin-left: 10px;
+			margin-right: 10px;
+
+			&:hover,
+			&:focus,
+			&:active,
+			&:active:focus {
+				color: @theme-button-hover-color !important;
+				text-decoration: none !important;
+			}
+		}
+	}
+}
+
+

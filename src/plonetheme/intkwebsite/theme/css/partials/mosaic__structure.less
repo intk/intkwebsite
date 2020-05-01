@@ -22,8 +22,7 @@ body.template-edit.mosaic-layout-customized {
 		margin-top: 0px;
 	}
 
-
-	&:not(.section-organizations) {
+	&:not(.section-organizations):not(.section-organisaties):not(.section-vacancies):not(.section-werken-bij) {
 
 		#header-wrapper {
 			.documentFirstHeading {
@@ -37,7 +36,7 @@ body.template-edit.mosaic-layout-customized {
 				padding-top: 50px;
 				padding-bottom: 40px;
 				max-width: 850px;
-				
+				color: #000000;
 			}
 
 			@media(max-width: 991px) {
@@ -70,7 +69,7 @@ body.template-edit.mosaic-layout-customized {
 			.Lato();
 			font-weight: 400;
 			font-size: 1.250em;
-			color: #797676;
+			color: #717171;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
@@ -93,7 +92,7 @@ body.template-edit.mosaic-layout-customized {
 			margin: 0 auto;
 
 			p {
-				color: #797676;
+				color: #717171;
 				line-height: 33px;
 			}
 		}
@@ -138,7 +137,7 @@ body.template-edit.mosaic-layout-customized {
 		.mosaic-grid-row .mosaic-width-full > div[class*="html-tile"]:nth-last-child(even) {
 			background: #f8f8f8;
 			div.documentDescription {
-				color: #000000;
+				color: @theme-description-color;
 			}
 		}
 
@@ -194,8 +193,115 @@ body.template-edit.mosaic-layout-customized {
 			background: #f8f8f8;
 			
 			div.documentDescription {
-				color: #000000;
+				color: @theme-description-color;
 			}
+		}
+	}
+
+	/* Frontpage structure */
+	&.section-frontpage {
+		/* Get in touch and more button */
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5) {
+			background: #f8f8f8;
+		}
+
+		/* Buttons */
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7) {
+			text-align: center;
+			width: 100%;
+
+			.mosaic-tile-content {
+				max-width: 100% !important;
+			}
+		}
+
+		/* White sections */
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(2),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7) {
+			background: #ffffff;
+		}
+
+		/* Get in touch button */
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
+			padding-top: 32px;
+			padding-bottom: 30px;
+
+			a.btn {
+				padding-left: 40px;
+				padding-right: 40px;
+			}
+		}
+
+
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
+			padding-top: 0px;
+
+			a.btn {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+		}
+
+
+
+		@media(max-width: 991px) { 
+			article#content {
+				margin-top: -10px;
+			}
+
+			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1) {
+				text-align: left;
+			}
+		}
+
+		@media(min-width: 991px) {
+			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
+			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6) {
+				padding-top: 50px;
+
+
+				.tileHeader {
+					font-size: 1.350em;
+					margin-bottom: 5px;
+				}
+			}
+		}
+
+		&.site-nl, &.site-en {
+			@media(min-width: 991px) {
+				.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(2) {
+					padding-top: 50px;
+
+
+					.tileHeader {
+						font-size: 1.350em;
+						margin-bottom: 5px;
+					}
+				}
+			}
+		}
+	}
+
+	&.section-frontpage div.outer-wrapper {
+		#top-header-wrapper {
+			padding-bottom: 0px;
+		}
+
+		#header-wrapper .documentDescription {
+			padding-bottom: 0px;
+		}
+
+		div.entries {
+			margin-top: 20px;
 		}
 	}
 }
@@ -214,4 +320,8 @@ body.template-edit.mosaic-layout-customized {
 		}
 	}
 }
+
+
+
+
 

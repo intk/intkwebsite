@@ -60,7 +60,7 @@
                     
                     <header metal:define-macro="listitem" tal:attributes="class python:'vevent' if item_is_event else None">
                       
-                      <div class="summary" tal:attributes="title python: item_type if not item_is_special else ''">
+                      <div class="summary" tal:attributes="title python: item_title if not item_is_special else ''">
                         
                         <a tal:condition="python:item_type == 'File' and showicons"
                            tal:attributes="href item_link;

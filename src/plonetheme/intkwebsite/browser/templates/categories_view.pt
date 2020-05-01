@@ -22,11 +22,13 @@
                             item_id item/getId;
                             item_title item/Title;
                             item_title python:item_title or item_id;
-                            item_url python: item.portal_type in view_types and item.getURL() + '/view' or item.getURL();">
+                            item_url python: item.portal_type in view_types and item.getURL() + '/view' or item.getURL();
+                            item_url_in_context python: item_url in original_context.absolute_url()">
 
               
                 <a tal:attributes="href item_url;
-                                   title item_title" 
+                                   title item_title;
+                                   class python: 'round-button' if not item_url_in_context else 'round-button active'" 
                    tal:content="item_title" class="round-button"></a>
 
             </tal:block>
