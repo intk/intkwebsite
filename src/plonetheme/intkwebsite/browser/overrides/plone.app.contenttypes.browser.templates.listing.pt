@@ -50,7 +50,7 @@
                 item_is_event python:view.is_event(obj);
                 item_has_image python:item.getIcon;
                 item_type_class python:('contenttype-' + view.normalizeString(item_type)) if showicons else '' ;
-                item_is_special python: item_type in ['Person', 'Connector', 'Organization'];
+                item_is_special python: item_type in ['Person', 'Connector', 'Organization', 'Testimonial'];
                 hide_link_special_types python: True if item_is_special and not showabout else False;
                 ">
               

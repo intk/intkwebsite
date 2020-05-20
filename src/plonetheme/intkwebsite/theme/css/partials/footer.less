@@ -30,28 +30,40 @@
 		border-bottom: 0px;
 	}
 
+	.portletWrapper {
+		width: 100%;
+	}
+
 	/* Typography */
-	p {
-		font-size: @theme-font-size-p-footer;
-		line-height: @theme-line-height-text;
+	.portlet-static-footer {
+		padding-top: 0px;
+		
+		p {
+			font-size: @theme-font-size-p-footer;
+			line-height: @theme-line-height-text;
+		}
+
+		p.address {
+			color: @theme-description-color;
+		}
+
+		h5 {
+			.Montserrat();
+			font-size: @theme-font-size-h5-footer;
+			color: @theme-font-size-h5-footer-color;
+			font-weight: @theme-font-weight-bold;
+			text-transform: uppercase;
+		}
+
+		h4 {
+			font-size: @theme-font-size-p-footer;
+			color: @theme-main-color;
+			font-weight: @theme-font-weight-light;
+		}
 	}
 
-	p.address {
-		color: @theme-footer-a-color;
-	}
-
-	h5 {
-		.Montserrat();
-		font-size: @theme-font-size-h5-footer;
-		color: @theme-font-size-h5-footer-color;
-		font-weight: @theme-font-weight-bold;
-		text-transform: uppercase;
-	}
-
-	h4 {
-		font-size: @theme-font-size-p-footer;
-		color: @theme-main-color;
-		font-weight: @theme-font-weight-light;
+	.portletCollection {
+		.links();
 	}
 
 	.col-lg-2 {
@@ -63,8 +75,10 @@
 		max-width: 1570px;
 	}
 
-	/* Links */
-	.footerLinks();
+	.portlet-static-footer {
+		/* Links */
+		.footerLinks();
+	}
 
 
 	/* Media queries */

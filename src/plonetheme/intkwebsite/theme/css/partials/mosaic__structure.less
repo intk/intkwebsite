@@ -67,9 +67,9 @@ body.template-edit.mosaic-layout-customized {
 
 		div.documentDescription {
 			.Lato();
-			font-weight: 400;
+			font-weight: @theme-font-weight-light;
 			font-size: 1.250em;
-			color: #717171;
+			color: @theme-description-color;
 			padding-left: 15px;
 			padding-right: 15px;
 		}
@@ -92,7 +92,7 @@ body.template-edit.mosaic-layout-customized {
 			margin: 0 auto;
 
 			p {
-				color: #717171;
+				color: @theme-description-color;
 				line-height: 33px;
 			}
 		}
@@ -203,7 +203,9 @@ body.template-edit.mosaic-layout-customized {
 		/* Get in touch and more button */
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5) {
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9) {
 			background: #f8f8f8;
 		}
 
@@ -211,7 +213,8 @@ body.template-edit.mosaic-layout-customized {
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7) {
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9) {
 			text-align: center;
 			width: 100%;
 
@@ -242,7 +245,8 @@ body.template-edit.mosaic-layout-customized {
 
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
 			padding-top: 0px;
 
 			a.btn {
@@ -265,7 +269,8 @@ body.template-edit.mosaic-layout-customized {
 
 		@media(min-width: 991px) {
 			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
-			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6) {
+			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6),
+			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8) {
 				padding-top: 50px;
 
 
@@ -308,9 +313,21 @@ body.template-edit.mosaic-layout-customized {
 
 
 body.template-edit.mosaic-layout-customized {
+
 	div.outer-wrapper {
 		.header();
 		.layout();
+
+		.mosaic-panel .mosaic-rich-text-toolbar {
+			margin-top: 0px;
+		}
+
+		.mosaic-panel .mosaic-tile-outer-border {
+			right: 0px;
+		    left: 0px;
+		    top: 0px;
+		    bottom: 0px;
+		}
 
 		@media(min-width: 992px) {
 			#main-container {
@@ -318,6 +335,10 @@ body.template-edit.mosaic-layout-customized {
 				margin-right: -50px;
 			}
 		}
+	}
+
+	div.website-wrapper {
+		background: @theme-bg-header;
 	}
 }
 

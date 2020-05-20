@@ -1,8 +1,7 @@
 
-body.frontend {
-
+.buttons() {
 	/* Buttons */
-	.standalone, .context, .destructive, [type="submit"], button, .btn {
+	.standalone, .context, .destructive, [type="submit"], button, .btn, .text-button a {
 		.Montserrat();
 		font-weight: @theme-button-font-weight;
 		border-radius: @theme-button-border-radius;
@@ -11,7 +10,7 @@ body.frontend {
 		height: @theme-button-height;
 	}
 
-	.standalone, [type="submit"], button, .btn {
+	.standalone, [type="submit"], button, .btn, .text-button a {
 		background-color: @theme-button-background-color;
 		border-color: @theme-button-border-color;
 		color: @theme-button-color;
@@ -43,9 +42,71 @@ body.frontend {
 	}
 }
 
+body#tinymce {
+	.buttons();
+}
+
+body.frontend {
+	.buttons();
+
+	#portal-footer-wrapper {
+		a.btn {
+			line-height: 32px;
+			color:@theme-button-color !important;
+			text-decoration: none !important;
+			margin-left: 10px;
+			margin-right: 10px;
+
+			padding-left: 20px;
+    		padding-right: 20px;
+
+			&:hover,
+			&:focus,
+			&:active,
+			&:active:focus {
+				color: @theme-button-hover-color !important;
+				text-decoration: none !important;
+			}
+
+			@media(max-width: 991px) {
+				margin-left: 0px;
+			}
+		}
+	}
+}
+
 
 body.template-layout.mosaic-grid, 
 body.template-edit.mosaic-layout-customized {
+
+	.mosaic-grid-row {
+		/* Buttons */
+		a.btn {
+			.Montserrat();
+			font-weight: @theme-button-font-weight;
+			border-radius: @theme-button-border-radius;
+			box-shadow: @theme-button-box-shadow;
+			text-shadow: @theme-button-text-shadow;
+			height: @theme-button-height;
+		}
+
+		a.btn {
+			background-color: @theme-button-background-color;
+			border-color: @theme-button-border-color;
+			color: @theme-button-color;
+			text-transform: @theme-button-text-transform;
+			
+			&:hover,
+			&:focus,
+			&:active,
+			&:active:focus {
+				background-color: @theme-button-hover-background-color;
+				border-color: @theme-button-hover-border-color;
+				color: @theme-button-hover-color;
+			}
+		}
+	}
+
 	&.section-frontpage div.outer-wrapper #main-container {
 		a.btn {
 			line-height: 32px;
@@ -61,7 +122,40 @@ body.template-edit.mosaic-layout-customized {
 				color: @theme-button-hover-color !important;
 				text-decoration: none !important;
 			}
+
+			@media(max-width: 991px) {
+				margin-left: 0px;
+			}
 		}
+	}
+}
+
+
+.text-button a {
+	display: inline-block;
+	line-height: 45px;
+
+	color: @theme-button-color !important;
+	text-decoration: none !important;
+	margin-left: 0px;
+	margin-right: 0px;
+	font-size: 15px;
+
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid @theme-button-background-color !important;
+
+	&:hover,
+	&:focus,
+	&:active,
+	&:active:focus {
+		color: @theme-button-hover-color !important;
+		text-decoration: none !important;
+		border: 1px solid #262626 !important;
+	}
+
+	@media(max-width: 991px) {
+		margin-left: 0px;
 	}
 }
 
