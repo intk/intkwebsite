@@ -81,13 +81,33 @@
 
     <div id="cd-nav" class="cd-nav">
         <div class="cd-navigation-wrapper">
-            <div id="menu-language-selector"></div>
+            <div class="language-collapse-menu">
+          
+              <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                  <div class="panel-heading" role="tab" id="collapseMenuHeading">
+                    <h4 class="panel-title">
+                      <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseMenu" aria-expanded="false" aria-controls="collapseMenu">
+                        <span class="selected-language">Global</span>
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="collapseMenu" class="panel-collapse collapse" role="tabpanel" aria-labelledby="collapseMenuHeading">
+                    <div id="menu-language-selector"></div>
+                  </div>
+                </div>
+              </div>        
+          </div>
+
             <div class="main-block">
                 <div id="mainnavigation-wrapper">
                   <div id="mainnavigation">
                   </div>
                 </div>
             </div>
+
+            
+
         </div> <!-- .cd-navigation-wrapper -->
     </div> <!-- .cd-nav -->
 

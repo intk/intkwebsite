@@ -91,10 +91,10 @@
 }
 
 /* Language selector */
-#portal-languageselector {
+div.language-collapse-menu {
 	position: absolute;
     left: 20px;
-    top: 45px;
+    top: 42px;
     height: 50px;
     z-index: 1000;
     font-size: @theme-menu-a-font-size;
@@ -115,40 +115,19 @@
 	    }
     }
 
-    li.currentLanguage a {
-    	color: @theme-menu-a-color-not-currentlanguage;
-
-    	&:hover,
-	    &:focus,
-	    &:active,
-	    &:active:focus {
-	    	color: @theme-menu-a-color-not-currentlanguage;
-	    	text-decoration: underline;
-	    }
-    }
-
-    li {
-    	margin-right: 2px;
-    }
-
-    .language-separator {
-    	color: @theme-menu-a-color-not-currentlanguage;
-    }
-
-    .language-separator:last-child {
-    	display: none;
-    	font-weight: @theme-font-weight-bold;
+    li.currentLanguage {
+        display: none !important;
     }
 
     @media(max-width: 991px) {
-    	top: 10px;
+    	top: 13px;
 	    left: 0px;
-	    padding-left: 20px;
+	    padding-left: 5px;
     }
 }
 
-body.plone-toolbar-expanded #portal-languageselector {
-	margin-left: 70px;
+body.plone-toolbar-expanded div.language-collapse-menu {
+	margin-left: 120px;
 }
 
 
