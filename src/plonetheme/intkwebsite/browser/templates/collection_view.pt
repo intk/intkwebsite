@@ -45,7 +45,8 @@
 
                     <div class="summary" tal:attributes="title python: item_title if not item_is_special else ''">
 
-                      <div class="image-wrapper">
+                      <div class="image-wrapper"
+                      tal:define="img_scale python: 'video' if item_type in ['WildcardVideo'] else img_scale">
                         <a tal:attributes="href item_link;"
                            tal:condition="python: item_has_image"
                            tal:omit-tag="hide_link_special_types">
