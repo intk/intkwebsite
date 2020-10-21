@@ -18,7 +18,7 @@
                          image_scale portal/@@image_scale;
                          checkPermission nocall: original_context/portal_membership/checkPermission;
                          show_about python:checkPermission('Portlets: Manage portlets', original_context);">
-
+ 
       <tal:listing condition="results">
         <div class="entries">
           <tal:entry repeat="item results">

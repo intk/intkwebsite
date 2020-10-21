@@ -8,10 +8,9 @@ this.activeTarget=b,this.clear();var c=this.selector+'[data-target="'+b+'"],'+th
 
 /* Custom JS */
 
-/* Menu */
-jQuery(document).ready(function (){
-	var isLateralNavAnimating = false;
 
+function load_menu() {
+	var isLateralNavAnimating = false;
 	var menu_buttons = document.getElementsByClassName("cd-nav-trigger");
 
 	var trigger_menu_button = function(event) {		
@@ -20,7 +19,6 @@ jQuery(document).ready(function (){
       		jQuery('body').toggleClass('navigation-is-open');
       
       		jQuery('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
-	        	//animation is over
 	        	isLateralNavAnimating = false;
 	      	});
 	    }
@@ -29,12 +27,15 @@ jQuery(document).ready(function (){
 	for (var i = 0; i < menu_buttons.length; i++) {
 	    menu_buttons[i].addEventListener('click', trigger_menu_button, {passive: true});
 	}
+};
 
+function load_popovers() {
+	if (jQuery('[data-toggle="popover"]').length > 0) {
+		jQuery('[data-toggle="popover"]').popover({"html": true});
+	}	
+};
 
-	/* Person */
-	jQuery('[data-toggle="popover"]').popover({"html": true});
-
-	/* Video */
+function load_videos() {
 	var video_wrapper_link = jQuery('a.video-wrapper-link');
 	var video_wrapper = jQuery('figure.video-wrapper');
 
@@ -44,4 +45,29 @@ jQuery(document).ready(function (){
 			
 		});
 	}
+}
+
+function load_carousel() {
+	require(['jquery', 'collective-slick-js'], function($) {
+	 	if ($(".slick-carousel:not(.slick-initialized)").length && typeof($(".slick-carousel").slick) !== "undefined") {
+	    	$(".slick-carousel").slick({
+	    		dots: true,
+	    		arrows: false
+	    	});
+	  	}
+  	});
+}
+
+jQuery(document).ready(function () {
+	/* Carousel */
+	load_carousel();
+	
+	/* Menu */
+	load_menu();
+
+ 	/* Popovers */
+	load_popovers();
+
+	/* Video */
+	load_videos();
 });

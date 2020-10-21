@@ -44,4 +44,13 @@
         template="templates/categories_view.pt"
     />
 
+    <browser:page
+        zcml:condition="installed plone.app.standardtiles"
+        name="testimonials_view"
+        for="*"
+        layer="plone.app.standardtiles.contentlisting.IContentListingTileLayer"
+        permission="zope2.View"
+        template="templates/testimonials_view.pt"
+    />
+
 </configure>

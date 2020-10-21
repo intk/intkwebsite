@@ -1,7 +1,7 @@
 
 .buttons() {
 	/* Buttons */
-	.standalone, .context, .destructive, [type="submit"], button, .btn, .text-button a {
+	.standalone, .context, .destructive, [type="submit"], button:not(.slick-next):not(.slick-prev), .btn, .text-button a {
 		.Montserrat();
 		font-weight: @theme-button-font-weight;
 		border-radius: @theme-button-border-radius;
@@ -10,7 +10,7 @@
 		height: @theme-button-height;
 	}
 
-	.standalone, [type="submit"], button, .btn, .text-button a {
+	.standalone, [type="submit"], button:not(.slick-next):not(.slick-prev), .btn, .text-button a {
 		background-color: @theme-button-background-color;
 		border-color: @theme-button-border-color;
 		color: @theme-button-color;
