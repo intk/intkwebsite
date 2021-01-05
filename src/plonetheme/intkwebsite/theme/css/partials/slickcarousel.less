@@ -18,7 +18,7 @@
 /* Testimonials theme */
 .slick-carousel.testimonials {
 
-	max-width: 1400px;
+	max-width: 1200px;
 	margin-left: auto;
 	margin-right: auto;
 
@@ -32,7 +32,7 @@
 		padding-top: 10px;
 		padding-bottom: 50px;
 
-		@media(min-width: 992px) {	
+		@media(min-width: 992px) {
 			padding-top: 50px;
 		}
 	}
@@ -77,9 +77,9 @@
 
 			@media(min-width: 992px) {
 				padding-left: 60px;
-				padding-right: 40px;
+				padding-right: 20px;
 			}
-		}
+        }
 
 		img {
 			border-radius: 50%;
@@ -88,10 +88,10 @@
 			margin: 0 auto;
 
 			@media(min-width: 992px) {
-				max-width: 100%;
+				max-width: 225px;
 			}
 
-		}	
+		}
 	}
 
 	.slide-details {
@@ -114,7 +114,7 @@
     		line-height: 1.7;
     		font-size: 1.250em;
     		margin: 0px 0px 1.875rem;
-    		color: #242424;
+    		color: rgb(99, 99, 99);
     		margin-top: 50px;
 
     		.Montserrat();
@@ -130,7 +130,8 @@
 
     	p.testimonial-quote:before {
 		    content: "";
-		    background-image: url(https://static.buffer.com/marketing/static/icons/quotes.svg);
+            background-image: url(https://static.buffer.com/marketing/static/icons/quotes.svg);
+            opacity: 0.70;
 		    background-repeat: no-repeat;
 		    position: absolute;
 		    left: 0px;
@@ -171,7 +172,11 @@
 			position: absolute;
 			bottom: -25px;
 		}
-	}
+    }
+
+    .slick-dots li.slick-active button:before {
+        opacity: 0.7;
+    }
 
 	&.slick-dotted.slick-slider {
 		margin-bottom: 30px;

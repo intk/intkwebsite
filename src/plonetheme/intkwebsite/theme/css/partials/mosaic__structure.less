@@ -8,8 +8,13 @@ body.template-layout.no-portlet-columns .outer-wrapper>.container .mosaic-grid-r
 	width: 100% !important;
 }
 
-body.template-layout.mosaic-grid, 
+body.template-layout.mosaic-grid,
 body.template-edit.mosaic-layout-customized {
+
+    .slick-carousel, .slick-carousel:not(.slick-initialized) {
+        visibility: visible;
+    }
+
 	.main-container-wrapper {
 		margin-top: -5px;
 	}
@@ -40,7 +45,7 @@ body.template-edit.mosaic-layout-customized {
 			}
 
 			@media(max-width: 991px) {
-				.documentDescription { 
+				.documentDescription {
 					padding-top: 0px;
 					padding-bottom: 15px;
 				}
@@ -103,7 +108,7 @@ body.template-edit.mosaic-layout-customized {
 		article#content {
 			margin-top: 20px;
 			margin-bottom: 0px;
-		}		
+		}
 	}
 
 	@media(max-width: 991px) {
@@ -191,7 +196,7 @@ body.template-edit.mosaic-layout-customized {
 		.mosaic-grid-row .mosaic-width-full > div[class*="contentlisting"]:nth-last-child(even),
 		.mosaic-grid-row .mosaic-width-full > div[class*="html-tile"]:nth-last-child(even) {
 			background: #f8f8f8;
-			
+
 			div.documentDescription {
 				color: @theme-description-color;
 			}
@@ -200,12 +205,12 @@ body.template-edit.mosaic-layout-customized {
 
 	/* Frontpage structure */
 	&.section-frontpage {
-		/* Get in touch and more button */
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
+        /* Get in touch and more button */
+        .mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9) {
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7),
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8) {
 			background: #f8f8f8;
 		}
 
@@ -213,9 +218,7 @@ body.template-edit.mosaic-layout-customized {
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(11) {
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8) {
 			text-align: center;
 			width: 100%;
 
@@ -227,15 +230,12 @@ body.template-edit.mosaic-layout-customized {
 		/* White sections */
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(2),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(10),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(11) {
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6) {
 			background: #ffffff;
 		}
 
 		/* Get in touch button */
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(1):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) {
 			padding-top: 32px;
 			padding-bottom: 30px;
 
@@ -248,9 +248,7 @@ body.template-edit.mosaic-layout-customized {
 
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(3):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
 		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(5):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(9):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile),
-		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(11):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) { 
+		.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8):not(.mosaic-IDublinCore-description-tile):not(.mosaic-IDublinCore-title-tile) {
 			padding-top: 0px;
 
 			a.btn {
@@ -261,7 +259,7 @@ body.template-edit.mosaic-layout-customized {
 
 
 
-		@media(max-width: 991px) { 
+		@media(max-width: 991px) {
 			article#content {
 				margin-top: -10px;
 			}
@@ -273,8 +271,8 @@ body.template-edit.mosaic-layout-customized {
 
 		@media(min-width: 991px) {
 			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(4),
-			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6),
-			.mosaic-grid-row .mosaic-width-full > div.movable:nth-child(8) {
+            .mosaic-grid-row .mosaic-width-full > div.movable:nth-child(6),
+            .mosaic-grid-row .mosaic-width-full > div.movable:nth-child(7) {
 				padding-top: 50px;
 
 
