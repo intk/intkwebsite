@@ -13,11 +13,11 @@ function load_menu() {
 	var isLateralNavAnimating = false;
 	var menu_buttons = document.getElementsByClassName("cd-nav-trigger");
 
-	var trigger_menu_button = function(event) {		
+	var trigger_menu_button = function(event) {
 		if( !isLateralNavAnimating ) {
-	      	if (jQuery(this).parents('.csstransitions').length > 0) isLateralNavAnimating = true; 
+	      	if (jQuery(this).parents('.csstransitions').length > 0) isLateralNavAnimating = true;
       		jQuery('body').toggleClass('navigation-is-open');
-      
+
       		jQuery('.cd-navigation-wrapper').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function() {
 	        	isLateralNavAnimating = false;
 	      	});
@@ -32,7 +32,7 @@ function load_menu() {
 function load_popovers() {
 	if (jQuery('[data-toggle="popover"]').length > 0) {
 		jQuery('[data-toggle="popover"]').popover({"html": true});
-	}	
+	}
 };
 
 function load_videos() {
@@ -42,7 +42,7 @@ function load_videos() {
 	if (video_wrapper.length) {
 		jQuery('.video-wrapper-link').on('click', function() {
 			video_wrapper.html('<iframe allowfullscreen frameborder="0" class="embed-responsive-item" src="' + video_wrapper_link.data('yt-video') + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>');
-			
+
 		});
 	}
 }
@@ -58,10 +58,18 @@ function load_carousel() {
   	});
 }
 
+function detect_safari() {
+  var isSafari = /constructor/i.test(window.HTMLElement) || (function (p) { return p.toString() === "[object SafariRemoteNotification]"; })(!window['safari'] || (typeof safari !== 'undefined' && window['safari'].pushNotification));
+
+  if (isSafari == true) {
+    jQuery("html").addClass("safari");
+  }
+}
+
 jQuery(document).ready(function () {
 	/* Carousel */
 	load_carousel();
-	
+
 	/* Menu */
 	load_menu();
 
@@ -69,5 +77,8 @@ jQuery(document).ready(function () {
 	load_popovers();
 
 	/* Video */
-	load_videos();
+  load_videos();
+
+  /* Detect safari */
+  detect_safari();
 });
