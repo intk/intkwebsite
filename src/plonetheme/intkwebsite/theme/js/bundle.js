@@ -37,12 +37,18 @@ function load_popovers() {
 
 function load_videos() {
 	var video_wrapper_link = jQuery('a.video-wrapper-link');
-	var video_wrapper = jQuery('figure.video-wrapper');
+	var video_wrappers = jQuery('figure.video-wrapper');
 
-	if (video_wrapper.length) {
+	if (video_wrappers.length) {
+
 		jQuery('.video-wrapper-link').on('click', function() {
-			video_wrapper.html('<iframe allowfullscreen frameborder="0" class="embed-responsive-item" src="' + video_wrapper_link.data('yt-video') + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>');
-
+			var video_wrapper = jQuery(this).parent('figure.video-wrapper');
+			var iframe_elem = $('<iframe allowfullscreen style="opacity: 0" frameborder="0" class="embed-responsive-item" src="' + jQuery(this).data('yt-video') + '" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>')
+			video_wrapper.append(iframe_elem);
+			setTimeout(function() {
+				jQuery(this).attr("style", "opacity: 0;");
+				iframe_elem.attr("style", "opacity: 1;");
+			}, 2500);
 		});
 	}
 }

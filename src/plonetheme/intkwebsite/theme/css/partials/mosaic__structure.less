@@ -353,4 +353,51 @@ body.template-edit.mosaic-layout-customized {
 }
 
 
+body.subsection-software.template-layout.mosaic-grid,
+body.subsection-software.template-edit.mosaic-layout-customized,
+body.subsection-website-design-and-development.template-layout.mosaic-grid,
+body.subsection-website-design-and-development.template-edit.mosaic-layout-customized,
+body.subsection-website-design-and-development-v1.template-layout.mosaic-grid,
+body.subsection-website-design-and-development-v1.template-edit.mosaic-layout-customized {
+	div.main-container-wrapper {
+
+		@media (min-width: 992px) {
+			padding-left: 0px;
+			padding-right: 0px;
+		}
+	}
+
+	div[class*="contentlisting"] {
+		float: none !important;
+	}
+
+	div[class*="sidetextslide"], div.outer-wrapper #main-container div[class*="sidetextslide"],
+	div[class*="videoslide"], div.outer-wrapper #main-container div[class*="videoslide"] {
+		
+		ul {
+			margin-top: -15px;
+
+			li {
+				.Lato();
+				font-size: 1.250em;
+				color: #999999;
+			}
+		}
+
+		a {
+			color: #999999;
+			text-decoration: underline;
+			&:hover,
+			&:focus,
+			&:active:focus {
+				color: #242424;
+			}
+		}
+	}
+
+	ul.slick-dots {
+		display: none;
+	}
+}
+
 
